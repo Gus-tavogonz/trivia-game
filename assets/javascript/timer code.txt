@@ -1,0 +1,32 @@
+ var number = 60;
+
+    var intervalId;
+
+    function run() {
+      intervalId = setInterval(decrement, 1000);
+    }
+    
+    $(".answer").hide();
+
+    function decrement() {
+      number--;
+      $(".show-number").text("You Have " + number + " to complete! Good Luck!");
+      if (number === 0) {
+        stop();
+        alert("Time Up!");
+      }
+    }
+    run();
+
+    function stop() {
+
+      //  Clears our intervalId
+      //  We just pass the name of the interval
+      //  to the clearInterval function.
+      clearInterval(intervalId);
+      $(".input-question").html("");
+      $(".answer").show();
+      
+    }
+
+

@@ -5,25 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-
-    <!--RESET!!-->
-    <link rel="stylesheet" href="./assets/css/reset.css">
     <!--BootStrap!-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <!--STYLE-->
     <link rel="stylesheet" href="./assets/css/style.css">
-    <!--JQUERY!!!-->
-  <script src="https://code.jquery.com/jquery.js"></script>
+   
 
-
-  
     <title>Trivia Game!!!</title>
 </head>
 <body>
+        <audio id="audio">
+                <source src="assets/audio/PulpFiction.mp3"></source>
+
+        
+        </audio>
+
+    <div class="container">
+            <h4 class="show-number"></h4>
+            <br>
+    </div>
+    <div class="container" id="tarantino-start">
+      <div class="start-game">
+        <h1>
+            Tarantino Trivia!!
+        </h1>
+        <button type="button" class="btn btn-secondary" id="start-button">Click to Start!</button>
+     </div>
+    </div>
+    <div class="container" id="questions-container">
+        <div class="row">
+            <div class="col-md-10" id="all-questions">
+                <form name="trivia-form" onsubmit action="">
+                    <h3 id="question1">1. Quentin Tarantino's first script was:</h3>
+                    <div class="input-question" id="question1-input">
+                    <input type="radio" name="q1" id="op1a" class="q1" value="a"> a. Reservoir Dogs<br>
+                    <input type="radio" name="q1" id="op1b" class="q1"value="b"> b. Pulp Fiction<br>
+                    <input type="radio" name="q1" id="op1c" class="q1"value="c"> c. True Romance<br>
+                    <input type="radio" name="q1" id="op1d" class="q1"value="d"> d. My Best Friend's Birthday<br>
+                    </div>
+                    <h4 class="answer">Tarantino's first script was My Best Friend's Wedding.
+                        His first succesful film was Reservoir Dogs
+
+                    </h4>
+
+                    <br>
+
+                    <h3 id="question2">2. Inglorious Basterds was nominated to:</h3>
+                    <div class="input-question">
+                    <input type="radio" name="q2" id="op2a" value="a"> a. 6 Oscars<br>
+                    <input type="radio" name="q2" id="op2b" value="b"> b. 8 Oscars<br>
+                    <input type="radio" name="q2" id="op2c" value="c"> c. 1 Oscar<br>
+                    <input type="radio" name="q2" id="op2d" value="d"> d. 4 Oscars<br>
+                    </div>
+                    <h4 class="answer">Inglorious Basterds was nominated to 8 Oscars! It should've won them all...</h4>
+
+                    <br>
+
+                    <h3 id="question3">3. Quentin Tarantino has written this many films:</h3>
+                   
+                    <div class="input-question">
+                    <input type="radio" name="q3" id="op3a" value="a"> a. 12<br>
+                    <input type="radio" name="q3" id="op3b" value="b"> b. 10<br>
+                    <input type="radio" name="q3" id="op3c" value="c"> c. 19<br>
+                    <input type="radio" name="q3" id="op3d" value="d"> d. 15<br>
+                    </div>
+                    <h4 class="answer">19 is the total of feature films written by Quentin Tarantino to date</h4>
+
+                    <br>
+
+                    <h3 id="question4">4. Quentin Tarantino's won an Oscar for Best Original Screenplay in 1995 for:</h3>
+                    <div class="input-question">
+
+                    <input type="radio" name="q4" id="op4a" value="a"> a. Reservoir Dogs<br>
+                    <input type="radio" name="q4" id="op4b" value="b"> b. Pulp Fiction<br>
+                    <input type="radio" name="q4" id="op4c" value="c"> c. Jackie Brown<br>
+                    <input type="radio" name="q4" id="op4d" value="d"> d. From Dusk 'til Dawn<br>
+                    </div>
+                    <h4 class="answer">Pulp Fiction earn Tarantino's first Oscar. It was also nominated for best movie, which it should have won...</h4>
+
+                    <br>
+
+                    <h3 id="question5">5. In Reservoir Dogs, the code names for each character are:</h3>
+                    <div class="input-question">
+
+                    <input type="radio" name="q5" id="op5a" value="a"> a. Mr. Magenta, Mr. Burnette, Mr. Orange, Mr. Velvet, Mr. Brown and Mr. Blue<br>
+                    <input type="radio" name="q5" id="op5b" value="b"> b. Mr. Pink, Mr. Green, Mr Black, Mr Orange, Mr. Yellow and Mr. Navy<br>
+                    <input type="radio" name="q5" id="op5c" value="c"> c. Mr. Pink, Mr. Orange, Mr. White, Mr. Blonde, Mr. Blue and Mr. Brown<br>
+                    <input type="radio" name="q5" id="op5d" value="d"> d. Mr. Fuscia, Mr. Black, Mr. Green, Mr. Orange, Mr. Red and Mr. Blonde<br>
+                    
+                    </div>
+                    <h4 class="answer">The correct answer is C. Mr. Pink, Mr. Orange, Mr. White, Mr. Blonde, Mr. Blue and Mr. Brown</h4>
+
+                    <br>
+
+
+                    <h3 id="question6">6. This italian composer has collaboreted with Quentin Tarantino in many of his films:</h3>
+                    <div class="input-question">
+
+                    <input type="radio" name="q6" id="op6a" value="a"> a. Egisto Macchi<br>
+                    <input type="radio" name="q6" id="op6b" value="b"> b. Ennio Morricone<br>
+                    <input type="radio" name="q6" id="op6c" value="c"> c. Ennio Porrino<br>
+                    <input type="radio" name="q6" id="op6d" value="d"> d. Enzo Masetti<br>
+                    </div>
+
+                    <h4 class="answer">Ennio Morricone is a longtime collaborator of Quentin Tarantino. He won his first Oscar with the Score of The Hateful Eight</h4>
+                    <br>
+
+
+                    <input type="button" id="button-submit" value="Submit Answers">
+                </form>
+            </div>
+        </div>
+    </div>
     
 
     
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="./assets/javascript/game.js"></script>
+    <script src="./assets/javascript/app.js"></script>
 </body>
 </html>
