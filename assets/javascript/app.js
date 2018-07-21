@@ -11,27 +11,40 @@ $(document).ready(function() {
     var correct = 0;
     var incorrect = 0;
     //var userInpunt = [""]
+    /////Timer Code!!!!!
+    var number = 60;
+
+    var intervalId;
 
    
-      new Audio('assets/audio/PulpFiction.mp3').play();
+    
  
 
 
-    // hide answers
+    // hide answers (GAME START)---------------------
     $(".answer").hide(); 
     //hide questions
     $("#questions-container").hide(); 
+    //hide-timer
+    $(".show-number").hide();
+    //(GAME START)-------------------------------------
+
+    //start button--------Show Questions and Start Game!!
+    $("#start-button").click(function()
+    {
+    $("#tarantino-start").hide();
+    $("#questions-container").show();
+    new Audio('assets/audio/PulpFiction.mp3').play();
+    $(".show-number").show();
+    run();
+    })
+
 
     //Onclick submit will get answers and input from user. Will tell you what quetions you were correct
     $("#button-submit").click(getAnswers);
 
 
-    //start button
-    $("#start-button").click(function(){
-      $("#tarantino-start").hide();
-      $("#questions-container").show();
-    })
-
+   
   //function get answers from user after click.
   function getAnswers(){
 
@@ -69,14 +82,20 @@ $(document).ready(function() {
     }
     
     //alert("you score " + correct + " and " + incorrect + " incorrect");
-    $(".show-number").append("You have " + correct + " correct answers and " + incorrect + " incorrect!")
+    
     hideShow();
+    appendResults();
+    stop();
   }
 
 
-  
+  //Appends the results!
+  function appendResults(){
+    $(".show-number").append("<div>You have " + correct + " correct answers and " + incorrect + " incorrect!</div>")
 
+  }
 
+  //show answer
   function hideShow(){
     $(".input-question").html("");
     $(".answer").show();
@@ -84,10 +103,45 @@ $(document).ready(function() {
 
 
 
+  //TIMER CODE!!!----------------
 
   
-
+  function run() {
+    intervalId = setInterval(decrement, 1000);
+  }
   
+  function decrement() {
+    number--;
+    $(".show-number").text("You Have " + number + " to complete! Good Luck!");
+    $()
+    if (number === 0) {
+      stop();
+      alert("Time Up!");
+      $(".show-number").text("Time's up!")
+      appendResults();
+    }
+  }
+  
+
+  function stop() {
+
+    //  Clears our intervalId
+    //  We just pass the name of the interval
+    //  to the clearInterval function.
+    clearInterval(intervalId);
+    $(".input-question").html("");
+    $(".answer").show();
+    
+  }
+
+
+
+
+
+
+
+
+
 
 
 });
